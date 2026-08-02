@@ -10,7 +10,7 @@ help:
 		'make install              Install dependencies' \
 		'make check-local-env     Report whether local CLI configuration is ready' \
 		'make prepare-local-env  Create .env.local if it is missing' \
-		'make precommit           Run formatter, lint, and type checks' \
+		'make precommit           Fix staged formatting, lint, and type checks' \
 		'make check               Run the fast repository checks' \
 		'make verify              Run the authoritative handoff gate' \
 		'make fix                 Apply safe formatting fixes'

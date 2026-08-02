@@ -20,8 +20,8 @@ make verify
 The verification gate is offline and does not require an API key. When the first live model stage is
 started, use `make prepare-local-env` and put credentials in `.env.local`; never commit them.
 
-After installation, `simple-git-hooks` installs a pre-commit hook that runs `make precommit` through
-the package script. It checks formatting, lint, and types without changing or staging files.
+After installation, `simple-git-hooks` installs a pre-commit hook that runs `make precommit`. The hook
+fixes formatting only for staged files, preserves unrelated unstaged work, then runs lint and typecheck.
 
 ## Project map
 
