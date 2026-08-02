@@ -1,0 +1,44 @@
+{
+  "name": "repository-investigator-agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A scaffold for a staged TypeScript repository investigator agent project.",
+  "type": "module",
+  "scripts": {
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "check-local-env": "node scripts/check-local-env.mjs",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "prepare": "simple-git-hooks",
+    "prepare-local-env": "node scripts/prepare-local-env.mjs",
+    "precommit": "pnpm lint-staged && pnpm lint && pnpm typecheck",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "verify": "pnpm check"
+  },
+  "dependencies": {
+    "ai": "^7.0.47",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "lint-staged": "17.3.0",
+    "oxfmt": "0.61.0",
+    "oxlint": "1.76.0",
+    "simple-git-hooks": "2.13.1",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "make precommit"
+  },
+  "lint-staged": {
+    "*.{cjs,js,mjs,jsx,ts,tsx,json,jsonc,md,mdx,yaml,yml}": "oxfmt"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.18.0"
+}
