@@ -10,6 +10,7 @@ iteration, but repeatable workflows should be wrapped in a named Make target.
 | `make prepare-local-env` | First local setup                   | Yes, local only         | Creates `.env.local` only when absent.    |
 | `make format`            | Apply formatting                    | Yes, source/docs        | Runs Oxfmt.                               |
 | `make fix`               | After formatting failures           | Yes, source/docs        | Currently wraps `make format`.            |
+| `make precommit`         | Before every commit                 | No                      | Formatter check, lint, and typecheck.     |
 | `make check`             | Fast iteration or before review     | No                      | Format check, lint, typecheck, and tests. |
 | `make verify`            | Normal handoff / definition of done | No                      | The authoritative local gate.             |
 

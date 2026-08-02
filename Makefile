@@ -3,13 +3,14 @@ PACKAGE_MANAGER ?= pnpm
 
 .DEFAULT_GOAL := help
 
-.PHONY: help install check-local-env prepare-local-env format format-check lint typecheck test check verify fix
+.PHONY: help install check-local-env prepare-local-env format format-check lint typecheck test precommit check verify fix
 
 help:
 	@printf '%s\n' \
 		'make install              Install dependencies' \
 		'make check-local-env     Report whether local CLI configuration is ready' \
 		'make prepare-local-env  Create .env.local if it is missing' \
+		'make precommit           Run formatter, lint, and type checks' \
 		'make check               Run the fast repository checks' \
 		'make verify              Run the authoritative handoff gate' \
 		'make fix                 Apply safe formatting fixes'
@@ -37,6 +38,9 @@ typecheck:
 
 test:
 	$(PACKAGE_MANAGER) test
+
+precommit:
+	$(PACKAGE_MANAGER) run precommit
 
 check: format-check lint typecheck test
 

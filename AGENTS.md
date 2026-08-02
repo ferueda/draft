@@ -86,6 +86,7 @@ call; tools, state, policy, persistence, approvals, and evaluations come afterwa
 - Install dependencies: `make install`
 - Check local API configuration for future live runs: `make check-local-env`
 - Prepare a missing local env file without overwriting one: `make prepare-local-env`
+- Run the commit-time checks: `make precommit`
 - Run the final local gate: `make verify`
 - Apply safe formatting fixes: `make fix`
 

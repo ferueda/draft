@@ -9,4 +9,5 @@ mutability.
 | `scripts/prepare-local-env.mjs` | Local setup | `make prepare-local-env` | Mutating  | Copies `.env.example` to `.env.local` only when the destination is absent. |
 
 `make verify`, `pnpm lint`, `pnpm typecheck`, and `pnpm test` are repository checks rather than
-standalone scripts. CI calls the same `make verify` gate used locally.
+standalone scripts. The `pre-commit` hook calls `make precommit`, which runs the formatter check, lint,
+and typecheck. CI calls the same `make verify` gate used locally.

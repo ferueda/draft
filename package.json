@@ -10,25 +10,31 @@
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
     "lint": "oxlint .",
+    "prepare": "simple-git-hooks",
     "prepare-local-env": "node scripts/prepare-local-env.mjs",
+    "precommit": "pnpm format:check && pnpm lint && pnpm typecheck",
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "verify": "pnpm check"
   },
+  "dependencies": {
+    "ai": "^7.0.47",
+    "zod": "^4.4.3"
+  },
   "devDependencies": {
     "@types/node": "^26.1.2",
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
+    "simple-git-hooks": "2.13.1",
     "typescript": "7.0.2",
     "vitest": "4.1.10"
   },
-  "engines": {
-    "node": ">=22.13"
+  "simple-git-hooks": {
+    "pre-commit": "make precommit"
   },
-  "packageManager": "pnpm@11.18.0",
-  "dependencies": {
-    "ai": "^7.0.47",
-    "zod": "^4.4.3"
-  }
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.18.0"
 }
